@@ -72,13 +72,13 @@ async function init() {
         return;
 	}
 	console.log("User text: [" + user_text + "]");
-	//user font color
+	//font color
 	user_font_color = answers["text-color"];
 	console.log("User font color: [" + user_font_color + "]");
-	//user shape color
+	//shape color
 	user_shape_color = answers['shape-color'];
 	console.log("User shape color: [" + user_shape_color + "]");
-	//user shape type
+	//shape type
 	user_shape_type = answers.shape;
 	console.log("User entered shape = [" + user_shape_type + "]");
 	
@@ -100,7 +100,7 @@ async function init() {
 		console.log("Invalid shape!");
 	}
 	user_shape.setColor(user_shape_color);
-// Create a new Svg instance and add the shape and text elements to it
+// Create a new Svg instance 
 var svg = new Svg();
 svg.setTextElement(user_text, user_font_color);
 svg.setShapeElement(user_shape);
@@ -108,23 +108,12 @@ svgString = svg.render();
 
 //Print shape to log
 console.log("Displaying shape:\n\n" + svgString);
-//document.getElementById("svg_image").innerHTML = svgString;
+
 
 console.log("Shape generation complete!");
 console.log("Writing shape to file...");
 writeToFile(svg_file, svgString); 
-    // inquirer.prompt(questions).then((data) =>{
-    //     console.log(JSON.stringify(data, null,''));
-    //     writeToFile(svg_file, svgString);
-    // });
+    
 }
 //call function to initialize app
 init();
-
-// .then((answers) => {
-//     const htmlPageContent = generateHTML(answers);
-
-//     fs.writeFile('index.html', htmlPageContent, (err) =>
-//       err ? console.log(err) : console.log('Successfully created index.html!')
-//     );
-//   });
